@@ -14,7 +14,7 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f6f6f6;
-            color: #000000;
+            color: #333333; /* Dark grey text as requested */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -50,16 +50,18 @@
             margin-bottom: 20px;
         }
         .brand-nav h1 {
-            font-size: 14px;
+            font-size: 18px; /* Bigger text */
             font-weight: bold;
             margin-bottom: 4px;
+            color: #333333;
         }
         .brand-nav nav ul {
             list-style: none;
         }
         .brand-nav nav ul li {
-            font-size: 13px;
+            font-size: 15px; /* Bigger text */
             margin-bottom: 4px;
+            color: #333333;
         }
 
         /* Left Column Construction */
@@ -73,8 +75,9 @@
             list-style: none;
         }
         .social-links li {
-            font-size: 13px;
+            font-size: 15px; /* Bigger text */
             margin-bottom: 12px;
+            color: #333333;
         }
 
         /* Center Column Construction (Hero Banner Area) */
@@ -84,11 +87,14 @@
             grid-template-columns: 1fr 1fr;
             align-items: center;
             gap: 20px;
+            position: relative;
         }
         .image-container {
             width: 100%;
             display: flex;
             justify-content: flex-end;
+            position: relative;
+            z-index: 1;
         }
         .hero-image {
             width: 100%;
@@ -99,13 +105,18 @@
         }
         .text-container {
             padding-left: 20px;
+            position: relative;
+            z-index: 2;
+            /* Negative margin shifts the container left so the title starts on the image */
+            margin-left: -80px; 
         }
         .main-title {
-            font-size: 64px;
+            font-size: 72px; /* Bigger text */
             font-weight: bold;
             line-height: 1.05;
             margin-bottom: 40px;
             letter-spacing: -1px;
+            color: #333333; /* Dark grey */
         }
         
         /* Button Stack Styles */
@@ -116,20 +127,31 @@
             align-items: flex-start;
         }
         .custom-button {
-            display: inline-block;
-            padding: 10px 24px;
-            background-color: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 240px;
+            padding: 14px 24px;
+            background-color: #333333; /* Dark grey */
             color: #ffffff;
-            font-size: 13px;
+            font-size: 16px; /* Bigger text */
             font-weight: bold;
-            border: 1px solid #000000;
+            border: 1px solid #333333;
+            border-radius: 50px; /* Fully curved sides like "View My Work" */
             text-align: center;
             cursor: pointer;
             transition: background-color 0.2s ease, color 0.2s ease;
         }
         .custom-button:hover {
             background-color: transparent;
-            color: #000000;
+            color: #333333;
+        }
+        .button-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            display: inline-block;
         }
 
         /* Right Column Construction */
@@ -153,18 +175,14 @@
             align-items: flex-end;
             margin-bottom: 20px;
         }
-        .footer-copyright {
-            font-size: 12px;
-            text-align: center;
-            flex-grow: 1;
-        }
         
-        /* Requested Developer Credits Addendum */
+        /* Developer Credits */
         .developer-credits {
             text-align: center;
-            font-size: 12px;
+            font-size: 14px; /* Bigger text */
             padding-top: 15px;
             border-top: 1px solid transparent;
+            color: #333333;
         }
 
         /* Responsive Design Rules */
@@ -193,9 +211,10 @@
             .text-container {
                 padding-left: 0;
                 text-align: center;
+                margin-left: 0;
             }
             .main-title {
-                font-size: 48px;
+                font-size: 56px;
             }
             .button-stack {
                 align-items: center;
@@ -238,14 +257,23 @@
 
         <main class="main-content">
             <div class="image-container">
-                <img src="image01.png" alt="Sophia Romanos Portfolio" class="hero-image">
+                <img src="image01.jpg" alt="Sophia Romanos Portfolio" class="hero-image">
             </div>
             <div class="text-container">
                 <h2 class="main-title">Sophia<br>Romanos</h2>
                 <div class="button-stack">
-                    <a href="#" class="custom-button">View My Work</a>
-                    <a href="#" class="custom-button">Button Two</a>
-                    <a href="#" class="custom-button">Button Three</a>
+                    <a href="#" class="custom-button">
+                        <span>View My Work</span>
+                        <svg class="button-icon" viewBox="0 0 24 24"><path d="M4 4h16v2H4zm0 4h16v12H4zm2 2v8h12v-8zm2 2h8v4H8z"/></svg>
+                    </a>
+                    <a href="#" class="custom-button">
+                        <span>Button Two</span>
+                        <svg class="button-icon" viewBox="0 0 24 24"><path d="M4 4h16v2H4zm0 4h16v12H4zm2 2v8h12v-8zm2 2h8v4H8z"/></svg>
+                    </a>
+                    <a href="#" class="custom-button">
+                        <span>Button Three</span>
+                        <svg class="button-icon" viewBox="0 0 24 24"><path d="M4 4h16v2H4zm0 4h16v12H4zm2 2v8h12v-8zm2 2h8v4H8z"/></svg>
+                    </a>
                 </div>
             </div>
         </main>
@@ -261,8 +289,6 @@
                     <li><a href="#">Instagram</a></li>
                     <li><a href="#">Twitter</a></li>
                 </ul>
-                
-                <div class="footer-copyright"></div>
             </div>
 
             <div class="developer-credits">
