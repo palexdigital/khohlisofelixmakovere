@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sophia Romanos</title>
+    <title>Khohliso Felix Makovere</title>
     <style>
         /* Reset and Base Styles */
         * {
@@ -24,7 +24,7 @@
             text-decoration: none;
         }
 
-        /* Layout Container */
+        /* Layout Container optimized for mobile link hub & full screen scaling */
         .wrapper {
             width: 100%;
             max-width: 1200px;
@@ -109,6 +109,7 @@
             z-index: 2;
             /* Negative margin shifts the container left so the title starts on the image */
             margin-left: -80px; 
+            width: 100%;
         }
         .main-title {
             font-size: 72px; /* Bigger text */
@@ -119,27 +120,26 @@
             color: #333333; /* Dark grey */
         }
         
-        /* Button Stack Styles */
+        /* Link Hub Stack Styles with Images and Descriptions */
         .button-stack {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 16px;
             align-items: flex-start;
+            width: 100%;
+            max-width: 440px;
         }
         .custom-button {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 240px;
-            padding: 14px 24px;
+            gap: 16px;
+            width: 100%;
+            padding: 12px 20px;
             background-color: #333333; /* Dark grey */
             color: #ffffff;
-            font-size: 16px; /* Bigger text */
-            font-weight: bold;
             border: 1px solid #333333;
             border-radius: 50px; /* Fully curved sides like "View My Work" */
-            text-align: center;
+            text-align: left;
             cursor: pointer;
             transition: background-color 0.2s ease, color 0.2s ease;
         }
@@ -147,11 +147,29 @@
             background-color: transparent;
             color: #333333;
         }
-        .button-icon {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
-            display: inline-block;
+        .button-img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            background-color: #f6f6f6; /* Fallback frame */
+        }
+        .button-text-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .button-title {
+            font-size: 16px; /* Bigger text */
+            font-weight: bold;
+            line-height: 1.2;
+        }
+        .button-desc {
+            font-size: 12px;
+            font-weight: normal;
+            opacity: 0.85;
+            margin-top: 2px;
         }
 
         /* Right Column Construction */
@@ -185,7 +203,7 @@
             color: #333333;
         }
 
-        /* Responsive Design Rules */
+        /* Responsive Design Rules for Perfect Mobile Link Hub Layout */
         @media (max-width: 900px) {
             .wrapper {
                 grid-template-columns: 1fr;
@@ -195,15 +213,18 @@
                     "leftmain"
                     "rightmain"
                     "footer";
-                padding: 20px;
+                padding: 24px 16px;
+                max-width: 480px; /* Constrains view beautifully for modern smartphone screens */
             }
             header {
                 flex-direction: column;
                 gap: 10px;
+                align-items: center;
+                text-align: center;
             }
             .main-content {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 24px;
             }
             .image-container {
                 justify-content: center;
@@ -215,13 +236,14 @@
             }
             .main-title {
                 font-size: 56px;
+                margin-bottom: 24px;
             }
             .button-stack {
                 align-items: center;
+                margin: 0 auto;
             }
             .right-sidebar {
-                align-items: center;
-                margin-top: 20px;
+                display: none; /* Cleans space on small mobile screens */
             }
             .footer-top {
                 flex-direction: column;
@@ -236,11 +258,11 @@
     <div class="wrapper">
         <header>
             <div class="brand-nav">
-                <h1>Sophia Romanos</h1>
+                <h1>Khohliso Felix Makovere</h1>
                 <nav>
                     <ul>
-                        <li>Graduation Collection</li>
-                        <li>About</li>
+                        <li>DIRECTOR</li>
+                        <li></li>
                     </ul>
                 </nav>
             </div>
@@ -248,31 +270,40 @@
 
         <aside class="left-sidebar">
             <ul class="social-links">
-                <li><a href="#">LinkedIn</a></li>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">Twitter</a></li>
+                <li><a href="YOUR_LINKEDIN_URL_HERE" target="_blank">LinkedIn</a></li>
+                <li><a href="YOUR_FACEBOOK_URL_HERE" target="_blank">Facebook</a></li>
+                <li><a href="YOUR_INSTAGRAM_URL_HERE" target="_blank">Instagram</a></li>
+                <li><a href="YOUR_TWITTER_URL_HERE" target="_blank">Twitter</a></li>
             </ul>
         </aside>
 
         <main class="main-content">
             <div class="image-container">
-                <img src="image01.png" alt="Sophia Romanos Portfolio" class="hero-image">
+                <img src="image01.jpg" alt="Portfolio" class="hero-image">
             </div>
             <div class="text-container">
-                <h2 class="main-title">Sophia<br>Romanos</h2>
+                <h2 class="main-title">Khohliso Felix<br>Makovere</h2>
                 <div class="button-stack">
-                    <a href="#" class="custom-button">
-                        <span>View My Work</span>
-                        <svg class="button-icon" viewBox="0 0 24 24"><path d="M4 4h16v2H4zm0 4h16v12H4zm2 2v8h12v-8zm2 2h8v4H8z"/></svg>
+                    <a href="https://felrontraders.pages.dev/"_blank" class="custom-button">
+                        <img src="felrontraders.jpg" alt="Work" class="button-img">
+                        <div class="button-text-container">
+                            <span class="button-title">Felron Traders</span>
+                            <span class="button-desc">Felron Traders (Private) Limited bridges global supply chains with local Zimbabwean industry lines. We provide dependable procurement services and top-quality goods supporting construction, healthcare, engineering, and industrial development.</span>
+                        </div>
                     </a>
-                    <a href="#" class="custom-button">
-                        <span>Button Two</span>
-                        <svg class="button-icon" viewBox="0 0 24 24"><path d="M4 4h16v2H4zm0 4h16v12H4zm2 2v8h12v-8zm2 2h8v4H8z"/></svg>
+                    <a href="YOUR_SECOND_LINK_HERE" target="_blank" class="custom-button">
+                        <img src="link02.jpg" alt="Services" class="button-img">
+                        <div class="button-text-container">
+                            <span class="button-title">Button Two</span>
+                            <span class="button-desc">Brief details describing this specific link action</span>
+                        </div>
                     </a>
-                    <a href="#" class="custom-button">
-                        <span>Button Three</span>
-                        <svg class="button-icon" viewBox="0 0 24 24"><path d="M4 4h16v2H4zm0 4h16v12H4zm2 2v8h12v-8zm2 2h8v4H8z"/></svg>
+                    <a href="YOUR_THIRD_LINK_HERE" target="_blank" class="custom-button">
+                        <img src="link03.jpg" alt="Contact" class="button-img">
+                        <div class="button-text-container">
+                            <span class="button-title">Button Three</span>
+                            <span class="button-desc">Brief details describing this specific link action</span>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -284,10 +315,10 @@
         <footer>
             <div class="footer-top">
                 <ul class="social-links">
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Twitter</a></li>
+                    <li><a href="YOUR_LINKEDIN_URL_HERE" target="_blank">LinkedIn</a></li>
+                    <li><a href="YOUR_FACEBOOK_URL_HERE" target="_blank">Facebook</a></li>
+                    <li><a href="YOUR_INSTAGRAM_URL_HERE" target="_blank">Instagram</a></li>
+                    <li><a href="YOUR_TWITTER_URL_HERE" target="_blank">Twitter</a></li>
                 </ul>
             </div>
 
