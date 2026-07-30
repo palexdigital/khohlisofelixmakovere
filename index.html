@@ -3,329 +3,335 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khohliso Felix Makovere</title>
+    <title>Khohliso Felix Makovere | Digital Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <style>
-        /* Reset and Base Styles */
+        :root {
+            /* Updated Color Palette */
+            --bg-top: #0a1128;         /* Dark Navy Blue for top curved section */
+            --bg-main: #030712;        /* Near-black background */
+            --card-bg: #111827;        /* Dark Blue/Gray for card container */
+            --blue-accent: #1d4ed8;    /* Vibrant dark blue accent for borders/gradients */
+            --text-primary: #FFFFFF;    /* Primary White text */
+            --text-secondary: #D1D5DB;  /* Soft White/Light Gray text */
+            --white: #FFFFFF;
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f6f6f6;
-            color: #333333; /* Dark grey text as requested */
+
+        html, body {
+            width: 100%;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        a {
-            color: inherit;
-            text-decoration: none;
+            background-color: var(--bg-main);
         }
 
-        /* Layout Container optimized for mobile link hub & full screen scaling */
-        .wrapper {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            flex-grow: 1;
-            display: grid;
-            grid-template-columns: 160px 1fr 160px;
-            grid-template-rows: auto 1fr auto;
-            grid-template-areas: 
-                "header header header"
-                "leftmain center rightmain"
-                "footer footer footer";
-            gap: 20px;
-        }
-
-        /* Header Construction */
-        header {
-            grid-area: header;
+        body {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-        .brand-nav h1 {
-            font-size: 18px; /* Bigger text */
-            font-weight: bold;
-            margin-bottom: 4px;
-            color: #333333;
-        }
-        .brand-nav nav ul {
-            list-style: none;
-        }
-        .brand-nav nav ul li {
-            font-size: 15px; /* Bigger text */
-            margin-bottom: 4px;
-            color: #333333;
-        }
-
-        /* Left Column Construction */
-        .left-sidebar {
-            grid-area: leftmain;
-            display: flex;
-            flex-direction: column;
             justify-content: center;
-        }
-        .social-links {
-            list-style: none;
-        }
-        .social-links li {
-            font-size: 15px; /* Bigger text */
-            margin-bottom: 12px;
-            color: #333333;
+            align-items: center;
         }
 
-        /* Center Column Construction (Hero Banner Area) */
-        .main-content {
-            grid-area: center;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 20px;
-            position: relative;
-        }
-        .image-container {
-            width: 100%;
-            display: flex;
-            justify-content: flex-end;
-            position: relative;
-            z-index: 1;
-        }
-        .hero-image {
-            width: 100%;
-            max-width: 440px;
-            height: auto;
-            display: block;
-            object-fit: cover;
-        }
-        .text-container {
-            padding-left: 20px;
-            position: relative;
-            z-index: 2;
-            /* Negative margin shifts the container left so the title starts on the image */
-            margin-left: -80px; 
-            width: 100%;
-        }
-        .main-title {
-            font-size: 72px; /* Bigger text */
-            font-weight: bold;
-            line-height: 1.05;
-            margin-bottom: 40px;
-            letter-spacing: -1px;
-            color: #333333; /* Dark grey */
-        }
-        
-        /* Link Hub Stack Styles with Images and Descriptions */
-        .button-stack {
+        /* Full Screen Responsive Container */
+        .card-container {
+            width: 100vw;
+            min-height: 100vh;
+            min-height: 100dvh;
+            background-color: var(--bg-main);
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            align-items: flex-start;
-            width: 100%;
-            max-width: 440px;
-        }
-        .custom-button {
-            display: flex;
             align-items: center;
-            gap: 16px;
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        /* Curved Top Dark Blue Section */
+        .top-section {
             width: 100%;
-            padding: 12px 20px;
-            background-color: #333333; /* Dark grey */
-            color: #ffffff;
-            border: 1px solid #333333;
-            border-radius: 50px; /* Fully curved sides like "View My Work" */
-            text-align: left;
-            cursor: pointer;
-            transition: background-color 0.2s ease, color 0.2s ease;
+            height: 25vh;
+            min-height: 160px;
+            max-height: 220px;
+            background-color: var(--bg-top);
+            border-bottom-left-radius: 50% 30px;
+            border-bottom-right-radius: 50% 30px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            position: relative;
+            padding-bottom: 20px;
+            flex-shrink: 0;
         }
-        .custom-button:hover {
-            background-color: transparent;
-            color: #333333;
+
+        /* Profile Picture with Blue Accent Ring */
+        .avatar-wrapper {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--blue-accent), #3b82f6);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            margin-bottom: -50px;
+            z-index: 2;
         }
-        .button-img {
-            width: 44px;
-            height: 44px;
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            flex-shrink: 0;
-            background-color: #f6f6f6; /* Fallback frame */
+            background-color: var(--bg-main);
         }
-        .button-text-container {
+
+        /* Main Content Section */
+        .content-section {
+            width: 100%;
+            max-width: 480px;
+            flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            align-items: center;
+            padding: 60px 20px 24px;
+            text-align: center;
+            justify-content: space-between;
+            gap: 20px;
         }
-        .button-title {
-            font-size: 16px; /* Bigger text */
-            font-weight: bold;
+
+        /* Header Info */
+        .header-info {
+            width: 100%;
+        }
+
+        .person-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.55rem;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 4px;
             line-height: 1.2;
         }
-        .button-desc {
-            font-size: 12px;
-            font-weight: normal;
-            opacity: 0.85;
-            margin-top: 2px;
+
+        .person-title {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 500;
         }
 
-        /* Right Column Construction */
-        .right-sidebar {
-            grid-area: rightmain;
+        /* Business Feature Card */
+        .business-card {
+            width: 100%;
+            padding: 20px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: flex-end;
+            align-items: center;
+            gap: 12px;
+            border-radius: 6px;
         }
 
-        /* Footer Construction */
-        footer {
-            grid-area: footer;
-            margin-top: auto;
-            padding-top: 60px;
+        .company-logo-frame {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: 1px solid var(--blue-accent);
+            padding: 2px;
+            background: rgba(255, 255, 255, 0.05);
         }
-        .footer-top {
+
+        .company-logo-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .business-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .business-description {
+            font-size: 0.72rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        /* Social Action Icons Grid */
+        .icon-grid {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 20px;
-        }
-        
-        /* Developer Credits */
-        .developer-credits {
-            text-align: center;
-            font-size: 14px; /* Bigger text */
-            padding-top: 15px;
-            border-top: 1px solid transparent;
-            color: #333333;
+            justify-content: center;
+            gap: 16px;
+            width: 100%;
         }
 
-        /* Responsive Design Rules for Perfect Mobile Link Hub Layout */
-        @media (max-width: 900px) {
-            .wrapper {
-                grid-template-columns: 1fr;
-                grid-template-areas: 
-                    "header"
-                    "center"
-                    "leftmain"
-                    "rightmain"
-                    "footer";
-                padding: 24px 16px;
-                max-width: 480px; /* Constrains view beautifully for modern smartphone screens */
-            }
-            header {
-                flex-direction: column;
-                gap: 10px;
-                align-items: center;
-                text-align: center;
-            }
-            .main-content {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-            .image-container {
-                justify-content: center;
-            }
-            .text-container {
-                padding-left: 0;
-                text-align: center;
-                margin-left: 0;
-            }
-            .main-title {
-                font-size: 56px;
-                margin-bottom: 24px;
-            }
-            .button-stack {
-                align-items: center;
-                margin: 0 auto;
-            }
-            .right-sidebar {
-                display: none; /* Cleans space on small mobile screens */
-            }
-            .footer-top {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            gap: 6px;
+        }
+
+        .circle-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease;
+        }
+
+        .circle-icon:active {
+            transform: scale(0.92);
+        }
+
+        .circle-icon svg {
+            width: 19px;
+            height: 19px;
+            fill: var(--bg-main);
+        }
+
+        .icon-label {
+            font-size: 0.58rem;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 20px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background-color: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+            text-decoration: none;
+            z-index: 99;
+        }
+
+        .floating-whatsapp svg {
+            width: 26px;
+            height: 26px;
+            fill: #FFFFFF;
+        }
+
+        /* Credits Footer */
+        .credits-footer {
+            margin-top: auto;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+        }
+
+        .credits-link {
+            font-size: 0.6rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .credits-link:hover {
+            color: var(--text-primary);
         }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
-        <header>
-            <div class="brand-nav">
-                <h1>Khohliso Felix Makovere</h1>
-                <nav>
-                    <ul>
-                        <li>DIRECTOR</li>
-                        <li></li>
-                    </ul>
-                </nav>
+    <div class="card-container">
+        <div class="top-section">
+            <div class="avatar-wrapper">
+                <img src="pfp.png" alt="Khohliso Felix Makovere" class="avatar-img">
             </div>
-        </header>
+        </div>
 
-        <aside class="left-sidebar">
-            <ul class="social-links">
-                <li><a href="YOUR_LINKEDIN_URL_HERE" target="_blank">LinkedIn</a></li>
-                <li><a href="YOUR_FACEBOOK_URL_HERE" target="_blank">Facebook</a></li>
-                <li><a href="YOUR_INSTAGRAM_URL_HERE" target="_blank">Instagram</a></li>
-                <li><a href="YOUR_TWITTER_URL_HERE" target="_blank">Twitter</a></li>
-            </ul>
-        </aside>
-
-        <main class="main-content">
-            <div class="image-container">
-                <img src="image01.jpeg" alt="Portfolio" class="hero-image">
+        <div class="content-section">
+            <div class="header-info">
+                <h1 class="person-name">Khohliso Felix Makovere</h1>
+                <p class="person-title">DIRECTOR</p>
             </div>
-            <div class="text-container">
-                <h2 class="main-title">Khohliso Felix<br>Makovere</h2>
-                <div class="button-stack">
-                    <a href="https://felrontraders.pages.dev/"_blank" class="custom-button">
-                        <img src="felrontraders.jpg" alt="Work" class="button-img">
-                        <div class="button-text-container">
-                            <span class="button-title">Felron Traders</span>
-                            <span class="button-desc">Felron Traders (Private) Limited bridges global supply chains with local Zimbabwean industry lines. We provide dependable procurement services and top-quality goods supporting construction, healthcare, engineering, and industrial development.</span>
-                        </div>
-                    </a>
-                    <a href="YOUR_SECOND_LINK_HERE" target="_blank" class="custom-button">
-                        <img src="link02.jpg" alt="Services" class="button-img">
-                        <div class="button-text-container">
-                            <span class="button-title">Button Two</span>
-                            <span class="button-desc">Brief details describing this specific link action</span>
-                        </div>
-                    </a>
-                    <a href="YOUR_THIRD_LINK_HERE" target="_blank" class="custom-button">
-                        <img src="link03.jpg" alt="Contact" class="button-img">
-                        <div class="button-text-container">
-                            <span class="button-title">Button Three</span>
-                            <span class="button-desc">Brief details describing this specific link action</span>
-                        </div>
-                    </a>
+
+            <div class="business-card">
+                <div class="company-logo-frame">
+                    <img src=felrontraders.jpg" alt="Felron Traders Logo" class="company-logo-img">
                 </div>
-            </div>
-        </main>
-
-        <aside class="right-sidebar">
-        </aside>
-
-        <footer>
-            <div class="footer-top">
-                <ul class="social-links">
-                    <li><a href="YOUR_LINKEDIN_URL_HERE" target="_blank">LinkedIn</a></li>
-                    <li><a href="YOUR_FACEBOOK_URL_HERE" target="_blank">Facebook</a></li>
-                    <li><a href="YOUR_INSTAGRAM_URL_HERE" target="_blank">Instagram</a></li>
-                    <li><a href="YOUR_TWITTER_URL_HERE" target="_blank">Twitter</a></li>
-                </ul>
+                <div class="business-title">Felron Traders</div>
+                <p class="business-description">
+                    Felron Traders (Private) Limited bridges global supply chains with local Zimbabwean industry lines. We provide dependable procurement services and top-quality goods supporting construction, healthcare, engineering, and industrial development.
+                </p>
             </div>
 
-            <div class="developer-credits">
-                <a href="https://palexdigital.pages.dev/" target="_blank">Developed By paléXdigital</a>
+            <div class="icon-grid">
+                <a href="https://instagram.com" class="icon-item" target="_blank">
+                    <div class="circle-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </div>
+                    <span class="icon-label">Instagram</span>
+                </a>
+
+                <a href="mailto:info@felrontraders.com" class="icon-item">
+                    <div class="circle-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    </div>
+                    <span class="icon-label">E-mail</span>
+                </a>
+
+                <a href="https://linkedin.com" class="icon-item" target="_blank">
+                    <div class="circle-icon">
+                        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                    </div>
+                    <span class="icon-label">LinkedIn</span>
+                </a>
+
+                <a href="tel:+263000000000" class="icon-item">
+                    <div class="circle-icon">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    </div>
+                    <span class="icon-label">Call</span>
+                </a>
             </div>
-        </footer>
+
+            <div class="credits-footer">
+                <a href="https://palexdigital.pages.dev/" target="_blank" class="credits-link">
+                    Developed By paléXdigital
+                </a>
+            </div>
+        </div>
+
+        <a href="https://wa.me/263000000000" class="floating-whatsapp" target="_blank" title="Chat on WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.81 9.81 0 0 0 12.04 2zm5.8 14.12c-.24.68-1.2 1.25-1.95 1.41-.51.11-1.18.2-3.43-.73-2.88-1.19-4.73-4.12-4.88-4.31-.14-.19-1.17-1.56-1.17-2.98 0-1.42.74-2.12 1.01-2.4.27-.28.59-.35.79-.35.2 0 .39.01.56.01.18 0 .42-.07.66.5.24.58.83 2.02.9 2.16.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.3.38-.43.51-.14.14-.29.3-.13.58.17.28.75 1.23 1.6 2 .11.1.23.2.36.3.82.65 1.51.85 1.8.99.28.14.45.12.62-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.66-.14.27.1.1.72 2.12.86 2.26.14.14.24.21.28.28.03.07.03.41-.21 1.09z"/></svg>
+        </a>
     </div>
 
 </body>
